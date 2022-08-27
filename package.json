@@ -1,0 +1,25 @@
+{
+  "name": "hhwebsite",
+  "version": "1.0.0",
+  "description": "Hudson Hive website",
+  "main": "svr.js",
+  "type": "module",
+  "dependencies": {
+    "express": "^4.18.1",
+    "node.js": "^0.0.1-security"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UP2004737/HHwebsite.git"
+  },
+  "author": "Natalie Geotenova, Max Little",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UP2004737/HHwebsite/issues"
+  },
+  "homepage": "https://github.com/UP2004737/HHwebsite#readme"
+}
