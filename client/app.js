@@ -1,3 +1,6 @@
+const el = {};
+let members;
+
 async function loadMembers() {
     let members;
     const response = await fetch('members');
@@ -9,4 +12,55 @@ async function loadMembers() {
     return members;
 }
 
-let navLinks = document.getElementById("navLinks");
+function prepareHandles() {
+    el.navLinks = document.querySelector("#navLinks");
+    el.memberList = document.querySelector("#memberList");
+    el.memberDetails = document.querySelector("#memberDetails");
+}
+
+function createMemberList(members, list) {
+    list.innerHTML = "";
+
+    for (const member of members) {
+        const fig = document.createElement('figure');
+        fig.dataset.id = member.id;
+        const figcap = document.createElement('figcaption');
+        figcap.textContent = member.name;
+        figcap.className = 'figcap';
+        figcap.dataset.name = member.name;
+        figcap.dataset.course = member.course;
+        figcap.dataset.year = member.year;
+        figcap.dataset.DoB = member.DoB;
+        figcap.dataset.funFact = member.funFact;
+        figcap.addEventListener('click', showDetails);
+        fig.append(figcap);
+        list.append(fig);
+    }
+}
+
+function showDetails(e) {
+    el.memberDetails.innerHTML = "";
+    const memberName = e.target.dataset.name;
+    const memberCourse = e.target.dataset.course;
+    const memberYear = e.target.dataset.year;
+    const memberDoB = e.target.dataset.DoB;
+    const memberFunFact = e.target.dataset.funFact;
+    
+    const fig = document.createElement('figure');
+    const figcap = document.createElement('figcaption');
+    figcap.append(memberName);
+    figcap.append(memberCourse);
+    figcap.append(memberYear);
+    figcap.append(memberDoB);
+    figcap.append(memberFunFact);
+    fig.append(figcap);
+    el.memberDetails.append(fig);
+}
+
+async function init() {
+    prepareHandles();
+    members = await loadMembers();
+    createMemberList(members, el.memberList);
+}
+
+window.addEventListener('load', init);
