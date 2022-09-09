@@ -23,7 +23,6 @@ function createMemberList(members, list) {
 
     for (const member of members) {
         const fig = document.createElement('figure');
-        fig.dataset.id = member.id;
         const figcap = document.createElement('figcaption');
         figcap.textContent = member.name;
         figcap.className = 'figcap';
@@ -51,10 +50,19 @@ function showDetails(e) {
     figcap.append(memberName);
     figcap.append(memberCourse);
     figcap.append(memberYear);
-    figcap.append(memberDoB);
+    figcap.append(calculateAge(memberDoB));
     figcap.append(memberFunFact);
     fig.append(figcap);
     el.memberDetails.append(fig);
+}
+
+function calculateAge(dob) {
+    let dateOfBirth = new Date(dob);
+    console.log(typeof dateOfBirth);
+    let diff_ms = Date.now() - dateOfBirth.getTime();
+    let age_dt = new Date(diff_ms); 
+  
+    return Math.abs(age_dt.getUTCFullYear() - 1970);
 }
 
 async function init() {
