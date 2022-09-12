@@ -47,11 +47,11 @@ function showDetails(e) {
     
     const fig = document.createElement('figure');
     const figcap = document.createElement('figcaption');
-    figcap.append(memberName);
-    figcap.append(memberCourse);
-    figcap.append(memberYear);
-    figcap.append(calculateAge(memberDoB));
-    figcap.append(memberFunFact);
+    figcap.append(memberName + "\n");
+    figcap.append(memberCourse + "\n");
+    figcap.append(memberYear + "\n");
+    figcap.append(calculateAge(memberDoB) + "\n");
+    figcap.append(memberFunFact + "\n");
     fig.append(figcap);
     el.memberDetails.append(fig);
 }
