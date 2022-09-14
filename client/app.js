@@ -22,18 +22,18 @@ function createMemberList(members, list) {
     list.innerHTML = "";
 
     for (const member of members) {
-        const fig = document.createElement('figure');
-        const figcap = document.createElement('figcaption');
-        figcap.textContent = member.name;
-        figcap.className = 'figcap';
-        figcap.dataset.name = member.name;
-        figcap.dataset.course = member.course;
-        figcap.dataset.year = member.year;
-        figcap.dataset.DoB = member.DoB;
-        figcap.dataset.funFact = member.funFact;
-        figcap.addEventListener('click', showDetails);
-        fig.append(figcap);
-        list.append(fig);
+        const figMemList = document.createElement('figure');
+        const figcapMemList = document.createElement('figcaption');
+        figcapMemList.textContent = member.name;
+        figcapMemList.className = 'figcapMemList';
+        figcapMemList.dataset.name = member.name;
+        figcapMemList.dataset.course = member.course;
+        figcapMemList.dataset.year = member.year;
+        figcapMemList.dataset.DoB = member.DoB;
+        figcapMemList.dataset.funFact = member.funFact;
+        figcapMemList.addEventListener('click', showDetails);
+        figMemList.append(figcapMemList);
+        list.append(figMemList);
     }
 }
 
@@ -45,20 +45,16 @@ function showDetails(e) {
     const memberDoB = e.target.dataset.DoB;
     const memberFunFact = e.target.dataset.funFact;
     
-    const fig = document.createElement('figure');
-    const figcap = document.createElement('figcaption');
-    figcap.append(memberName + "\n");
-    figcap.append(memberCourse + "\n");
-    figcap.append(memberYear + "\n");
-    figcap.append(calculateAge(memberDoB) + "\n");
-    figcap.append(memberFunFact + "\n");
-    fig.append(figcap);
-    el.memberDetails.append(fig);
+    const figMemDetails = document.createElement('figure');
+    const figcapMemDetails = document.createElement('figcaption');
+    figcapMemDetails.className = 'figcapMemDetails';
+    figcapMemDetails.textContent = "\n" + memberName + "\n" + memberCourse + "\n" + memberYear + "\n" + calculateAge(memberDoB) + "\n" + memberFunFact;
+    figMemDetails.append(figcapMemDetails);
+    el.memberDetails.append(figMemDetails);
 }
 
 function calculateAge(dob) {
     let dateOfBirth = new Date(dob);
-    console.log(typeof dateOfBirth);
     let diff_ms = Date.now() - dateOfBirth.getTime();
     let age_dt = new Date(diff_ms); 
   
