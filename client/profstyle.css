@@ -119,10 +119,25 @@ nav img {
 }
 
 #memberDetails {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.figMemDetails {
     color: white;
     font-size: medium;
     text-align: center;
     display: grid;
+    padding: 0.5em;
+    width: 30em;
+    height: 30em;
     grid-template-columns: var(--details);
     grid-gap: var(--space-between-content);
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(9.9px);
+    -webkit-backdrop-filter: blur(9.9px);
 }

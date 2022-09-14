@@ -46,10 +46,33 @@ function showDetails(e) {
     const memberFunFact = e.target.dataset.funFact;
     
     const figMemDetails = document.createElement('figure');
-    const figcapMemDetails = document.createElement('figcaption');
-    figcapMemDetails.className = 'figcapMemDetails';
-    figcapMemDetails.textContent = "\n" + memberName + "\n" + memberCourse + "\n" + memberYear + "\n" + calculateAge(memberDoB) + "\n" + memberFunFact;
-    figMemDetails.append(figcapMemDetails);
+    figMemDetails.className = 'figMemDetails';
+
+    const capName = document.createElement('figcaption');
+    capName.className = 'capName';
+    capName.textContent = memberName;
+    figMemDetails.append(capName);
+
+    const capCourse = document.createElement('p');
+    capCourse.className = 'capCourse';
+    capCourse.textContent = memberCourse;
+    figMemDetails.append(capCourse);
+
+    const capYear = document.createElement('p');
+    capYear.className = 'capYear';
+    capYear.textContent = memberYear;
+    figMemDetails.append(capYear);
+
+    const capDoB = document.createElement('p');
+    capDoB.className = 'capDoB';
+    capDoB.textContent = calculateAge(memberDoB);
+    figMemDetails.append(capDoB);
+
+    const capFunFact = document.createElement('p');
+    capFunFact.className = 'capFunFact';
+    capFunFact.textContent = memberFunFact;
+    figMemDetails.append(capFunFact);
+
     el.memberDetails.append(figMemDetails);
 }
 
