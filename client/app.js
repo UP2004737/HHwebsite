@@ -53,27 +53,37 @@ function showDetails(e) {
     capName.textContent = memberName;
     figMemDetails.append(capName);
 
-    const capCourse = document.createElement('p');
+    const capCourse = document.createElement('figcaption');
     capCourse.className = 'capCourse';
     capCourse.textContent = memberCourse;
     figMemDetails.append(capCourse);
 
-    const capYear = document.createElement('p');
+    const capYear = document.createElement('figcaption');
     capYear.className = 'capYear';
     capYear.textContent = memberYear;
     figMemDetails.append(capYear);
 
-    const capDoB = document.createElement('p');
+    const capDoB = document.createElement('figcaption');
     capDoB.className = 'capDoB';
     capDoB.textContent = calculateAge(memberDoB);
     figMemDetails.append(capDoB);
 
-    const capFunFact = document.createElement('p');
+    const capFunFact = document.createElement('figcaption');
     capFunFact.className = 'capFunFact';
     capFunFact.textContent = memberFunFact;
     figMemDetails.append(capFunFact);
 
+    const exit = document.createElement('img');
+    exit.className = 'exit';
+    exit.src = 'images/exit.png';
+    exit.addEventListener('click', exitDetails);
+    figMemDetails.append(exit);
+
     el.memberDetails.append(figMemDetails);
+}
+
+function exitDetails() {
+    el.memberDetails.innerHTML = "";
 }
 
 function calculateAge(dob) {

@@ -130,7 +130,7 @@ nav img {
     font-size: medium;
     text-align: center;
     display: grid;
-    padding: 0.5em;
+    padding: 2em;
     width: 30em;
     height: 30em;
     grid-template-columns: var(--details);
@@ -140,4 +140,12 @@ nav img {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(9.9px);
     -webkit-backdrop-filter: blur(9.9px);
+}
+
+.exit {
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    top: 2em;
+    right: 2em;
 }
